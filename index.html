@@ -10,11 +10,39 @@
 <body>
 
     <header>
-        <h1>Meu Site</h1>
+        <h1>Espaço Beleza - Makeup </h1>
+        <p>Bem-vinda ao Espaço Beleza!</p> <br>
+        <p>Nosso salão é especializado em maquiagem </p>
     </header>
 
     <main>
-        <p>Conteúdo principal</p>
+        <p>Oferecemos os seguintes serviços:</p>
+        <ul>
+            <li>Maquiagem</li>
+            <li>Coloração</li>
+            <li>Manicure</li>
+            <li>Pedicure</li>
+        </ul>
+
+        <img src="maquiagem_colorida.jpg" alt="Maquiagem colorida" width="300" />
+        
+        <h1>Agende seu horário</h1>
+        <div> 
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required> <br>
+
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" name="telefone" required> <br>
+
+            <label for="servico">Serviço:</label>
+            <select id="servico" name="servico" required> <br>
+                <option value="">Selecione um serviço</option>
+                <option value="corte">Maquiagem</option>
+                <option value="pintura">Coloração</option>
+                <option value="manicure">Manicure</option>
+                <option value="pedicure">Pedicure</option>
+            </select>
+        </div>
     </main>
 
     <footer>
