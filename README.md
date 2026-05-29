@@ -1,1 +1,47 @@
-# projeto_cpi_ii
+Projeto - ConStrução de Páginas para Internet II
+
+
+Nome da aplicação
+
+WebSite - Juliana Koczinski - Médica Veterinária
+
+Descrição geral
+
+O website será desenvolvido para funcionar como um portfólio profissional da médica veterinária Juliana Koczinski, especialista em felinos, além de oferecer um sistema de agendamento de serviços veterinários online.
+A plataforma permitirá que os tutores conheçam os serviços oferecidos, obtenham informações sobre a profissional e realizem agendamentos de forma prática e organizada.
+O objetivo da aplicação é facilitar o processo de divulgação dos serviços veterinários e automatizar o agendamento de consultas e atendimentos, proporcionando mais praticidade tanto para a médica veterinária quanto para os tutores dos pets.
+Atualmente, o controle de agendamentos é feito manualmente, exigindo que a veterinária consulte constantemente sua agenda e responda individualmente cada cliente sobre os horários disponíveis. Isso gera perda de tempo e dificulta a organização dos atendimentos.
+O sistema busca resolver esse problema automatizando o processo de agendamento e centralizando as informações dos clientes e pets.
+Os usuários do sistema serão:
+Tutores de pets;
+Clientes da médica veterinária;
+A própria médica veterinária, responsável pelo gerenciamento dos atendimentos.
+
+Contexto de uso
+O sistema será utilizado por tutores que desejam conhecer o trabalho da médica veterinária, visualizar os serviços disponíveis e realizar agendamentos online de consultas e atendimentos veterinários.
+Também será utilizado pela veterinária para organizar e acompanhar os agendamentos realizados.
+A aplicação será utilizada em situações como:
+Agendamento de consultas veterinárias;
+Consulta de horários disponíveis;
+Cadastro de tutores e pets;
+Divulgação dos serviços realizados pela veterinária;
+Consulta de informações sobre atendimentos agendados.
+
+Os principais benefícios esperados são:
+Maior organização dos agendamentos;
+Redução do tempo gasto com atendimento manual;
+Facilidade de comunicação entre clientes e veterinária;
+Melhor experiência para os tutores;
+Divulgação profissional dos serviços veterinários;
+Centralização das informações dos clientes e pets.
+
+Requisitos Funcionais
+O sistema deve permitir o cadastro de tutores.
+O sistema deve permitir o cadastro de pets vinculados aos tutores.
+O sistema deve permitir o agendamento de consultas e serviços veterinários.
+O sistema deve permitir consultar agendamentos através do e-mail do tutor.
+O sistema deve exibir informações sobre os serviços oferecidos pela veterinária.
+O sistema deve permitir que a veterinária visualize os agendamentos realizados.
+O sistema deve permitir cancelar ou alterar agendamentos.
+
+
