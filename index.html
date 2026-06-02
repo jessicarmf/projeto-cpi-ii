@@ -3,68 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto CPI II - Jéssica Freitas</title>
-
+    <title>Juliana Koczinski - Médica Veterinária</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- MENU -->
     <header>
-    <nav>
-        <ul> <!-- menu -->
-            <a href="">Início</a>
-            <a href="#">Serviços</a>
-            <a href="#">Sobre</a>
-            <a href="#">Feedbacks</a>
-            <a href="#">Contato</a>
-        </ul>
-    </nav>
-    
-    <h1> Cuidado e bem-estar para o <span style="color: #00BCD4;">seu pet.</span> </h1>
-
-</header>
-
-    <main>
-       
-        <ul>
-            <li>Aplicação de vacinas</li>
-            <li>Exames veterinários</li>
-            <li>Consultas de rotina</li>
-            <li>Aplicação de medicamentos</li>
-            <li>Cuidados com a saúde do seu animal de estimação</li>
-            <li>Petsitter</li>
-            
-        </ul>
-
-        <img src="juliana_operando.webp" alt="Médica Veterinária operando" width="300" />
-        
-        <br><br>
-        <button type="submit">Agende um serviço para seu pet.</button>
-        <h1>Agende seu horário</h1>
-        <div> 
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required> <br>
-
-            <label for="telefone">Telefone:</label>
-            <input type="text" id="telefone" name="telefone" required> <br>
-
-            <label for="servico">Serviço:</label>
-            <select id="servico" name="servico" required> <br>
-                <option value="">Selecione um serviço</option>
-                <option value="corte">Aplicação de vacinas</option>
-                <option value="pintura">Exames veterinários</option>
-                <option value="manicure">Consultas de rotina</option>
-                <option value="pedicure">Aplicação de medicamentos</option>
-                <option value="noiva">Cuidados com a saúde do seu gato</option>
-                <option value="artistica">Tratamento de doenças</option>
-            </select>
+        <div class="logo">
+            <p>Juliana Koczinski</p>
+            <p>Médica Veterinária</p>
         </div>
-    </main>
 
+        <nav>
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#feedbacks">Feedbacks</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+
+        <div class="botoes-menu">
+            <button>Agendamento</button>
+            <button>Espaço tutor</button>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="texto">
+            <h1>
+                Cuidado e bem-estar <br>
+                para o <span>seu pet.</span>
+            </h1>
+
+            <p>
+                Atendimento veterinário com carinho,
+                atenção e profissionalismo para garantir
+                a saúde e qualidade do seu melhor amigo.
+            </p>
+        </div>
+
+        <div class="imagem">
+            <img src="img/img6.jpg" alt="Veterinária com cachorro">
+        </div>
+    </section>
+
+    <!-- CHAMADA -->
+    <section class="chamada">
+        <h2>Agende agora um horário para seu pet!</h2>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="servicos">
+        <div class="texto-servicos">
+            <h2>Serviços</h2>
+
+            <div>
+                <h3>Atendimento domiciliar</h3>
+                <p>Atendimento realizado no conforto da sua casa.</p>
+            </div>
+
+            <div>
+                <h3>Aplicação de vacinas</h3>
+                <p>Vacinas essenciais para a saúde do pet.</p>
+            </div>
+
+            <div>
+                <h3>Pet sitter</h3>
+                <p>Cuidados temporários para seu pet.</p>
+            </div>
+        </div>
+
+        <div class="imagem-servicos">
+            <img src="img/img7.jpg" alt="Veterinária e umGato">
+        </div>
+    </section>
+
+    <div class="btn-centro">
+        <button>Ver todos os serviços</button>
+    </div>
+
+    <!-- AGENDAMENTO -->
+    <section class="agendamento">
+
+        <div class="info">
+            <h2>Agendamento de Consultas Veterinárias</h2>
+
+            <p>Agende consultas, vacinas e serviços de forma simples e segura.</p>
+
+            <ul>
+                <li>Escolha o serviço desejado</li>
+                <li>Informe a data disponível</li>
+                <li>Receba a confirmação do agendamento</li>
+            </ul>
+        </div>
+
+        <form>
+            <label>Tutor(a)</label>
+            <input type="text">
+
+            <label>Email</label>
+            <input type="email">
+
+            <label>Nome do pet</label>
+            <input type="text">
+
+            <label>Serviço desejado</label>
+            <select>
+                <option>Selecione o serviço</option>
+            </select>
+
+            <label>Data desejada</label>
+            <input type="date">
+
+            <label>Observações</label>
+            <textarea></textarea>
+
+            <button type="submit">Confirmar agendamento</button>
+        </form>
+
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+
+        <div class="texto-sobre">
+            <h2>Sobre mim</h2>
+
+            <p>
+                Sou Juliana Koczinski, médica veterinária
+                formada e apaixonada por cuidar de vidas.
+            </p>
+
+            <ul>
+                <li>Formada pela Universidade Federal de Roraima</li>
+                <li>Atendimento pet friendly</li>
+                <li>Compromisso com a saúde e bem-estar animal</li>
+            </ul>
+        </div>
+
+        <div class="imagem-sobre">
+            <img src="img/cirurgia.jpg" alt="Cirurgia veterinária">
+        </div>
+
+    </section>
+
+    <!-- FEEDBACKS -->
+    <section id="feedbacks" class="feedbacks">
+
+        <h2>Feedbacks</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <p>"Meu gato é bastante arisco..."</p>
+                <h4>Jéssica</h4>
+            </div>
+
+            <div class="card">
+                <p>"A aplicação das vacinas..."</p>
+                <h4>Magnus</h4>
+            </div>
+
+            <div class="card">
+                <p>"Atendimento excelente..."</p>
+                <h4>Elisa</h4>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+
+        <div>
+            <h2>Entre em contato!</h2>
+
+            <p>📞 95 99999-9999</p>
+            <p>✉️ medvet@email.com</p>
+            <p>📍 Boa Vista - RR</p>
+        </div>
+
+        <div class="botoes-contato">
+            <button>Agendamento</button>
+            <button>WhatsApp</button>
+        </div>
+
+    </section>
+
+    <!-- RODAPÉ -->
     <footer>
-        <p>Desenvolvido por <a href="https://github.com/jessicarmf" target="_blank">Jéssica Freitas</a></p>
+        <p>Desenvolvido por Jéssica Freitas</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
