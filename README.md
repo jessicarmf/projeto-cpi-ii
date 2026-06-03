@@ -1,9 +1,5 @@
-Figma: https://www.figma.com/design/IkdHIR8tk1YkkloymrVnmo/MV---Juliana-Koczinski?node-id=2038-107&m=dev&t=KpJOEu1w2SdYNG7p-1
+<h1> Projeto - ConStrução de Páginas para Internet II </h1>h1> 
 
-Projeto - ConStrução de Páginas para Internet II
-
-
-Nome da aplicação
 
 WebSite - Juliana Koczinski - Médica Veterinária
 
@@ -46,4 +42,6 @@ Requisitos Funcionais
 - O sistema deve permitir que a veterinária visualize os agendamentos realizados.
 - O sistema deve permitir cancelar ou alterar agendamentos.
 
+
+Figma: https://www.figma.com/design/IkdHIR8tk1YkkloymrVnmo/MV---Juliana-Koczinski?node-id=2038-107&m=dev&t=KpJOEu1w2SdYNG7p-1
 
