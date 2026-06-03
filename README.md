@@ -1,4 +1,4 @@
-<h1> Projeto - ConStrução de Páginas para Internet II </h1>
+<h1> Projeto - Construção de Páginas para Internet II </h1>
 <h1> Juliana Koczinski || Médica Veterinária </h1>
 
 <b> Descrição geral </b> <br> 
