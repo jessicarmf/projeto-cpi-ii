@@ -1,6 +1,6 @@
 <h1> Projeto - ConStrução de Páginas para Internet II </h1>
 <h1> WebSite - Juliana Koczinski - Médica Veterinária </h1>
-<p>Descrição geral </p>
+<p> <n> Descrição geral </n> </p>
 
   O website será desenvolvido para funcionar como um portfólio profissional da médica veterinária Juliana Koczinski, além de oferecer um sistema de agendamento de serviços veterinários online.
   A plataforma permitirá que os tutores conheçam os serviços oferecidos, obtenham informações sobre a profissional e realizem agendamentos de forma prática e organizada.
