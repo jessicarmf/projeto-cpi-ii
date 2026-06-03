@@ -12,18 +12,18 @@
   - Clientes da médica veterinária;
   - A própria médica veterinária, responsável pelo gerenciamento dos atendimentos.
 
-<b>Contexto de uso:</b> <br>
+<h>Contexto de uso:</h1> <br>
   O sistema será utilizado por tutores que desejam conhecer o trabalho da médica veterinária, visualizar os serviços disponíveis e realizar agendamentos online de consultas e atendimentos veterinários.
   Também será utilizado pela veterinária para organizar e acompanhar os agendamentos realizados.
   
-  <b>A aplicação será utilizada em situações como:</b> <br>
+  <h1>A aplicação será utilizada em situações como:</h1> <br>
 ✓ Agendamento de consultas veterinárias; <br>
 ✓ Consulta de horários disponíveis; <br>
 ✓ Cadastro de tutores e pets; <br>
 ✓ Divulgação dos serviços realizados pela veterinária; <br>
 ✓ Consulta de informações sobre atendimentos agendados.<br>
  
-<b>Os principais benefícios esperados são: </b> <br>
+<h1>Os principais benefícios esperados são: </h1> <br>
 ✓ Maior organização dos agendamentos; <br>
 ✓ Redução do tempo gasto com atendimento manual; <br>
 ✓ Facilidade de comunicação entre clientes e veterinária; <br>
@@ -31,7 +31,7 @@
 ✓ Divulgação profissional dos serviços veterinários; <br>
 ✓ Centralização das informações dos clientes e pets. <br>
 
-<b>Requisitos Funcionais </b> <br>
+<h1>Requisitos Funcionais </h1> <br>
 ✓ O sistema deve permitir o cadastro de tutores. <br>
 ✓ O sistema deve permitir o cadastro de pets vinculados aos tutores. <br>
 ✓ O sistema deve permitir o agendamento de consultas e serviços veterinários. <br>
