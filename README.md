@@ -17,27 +17,27 @@
   Também será utilizado pela veterinária para organizar e acompanhar os agendamentos realizados.
   
   <b>A aplicação será utilizada em situações como:</b> <br>
-✓ Agendamento de consultas veterinárias;
-✓ Consulta de horários disponíveis;
-✓ Cadastro de tutores e pets;
-✓ Divulgação dos serviços realizados pela veterinária;
-✓ Consulta de informações sobre atendimentos agendados.
-
+✓ Agendamento de consultas veterinárias; <br>
+✓ Consulta de horários disponíveis; <br>
+✓ Cadastro de tutores e pets; <br>
+✓ Divulgação dos serviços realizados pela veterinária; <br>
+✓ Consulta de informações sobre atendimentos agendados.<br>
+ 
 <b>Os principais benefícios esperados são: </b> <br>
-✓ Maior organização dos agendamentos;
-✓ Redução do tempo gasto com atendimento manual;
-✓ Facilidade de comunicação entre clientes e veterinária;
-✓ Melhor experiência para os tutores;
-✓ Divulgação profissional dos serviços veterinários;
-✓ Centralização das informações dos clientes e pets.
+✓ Maior organização dos agendamentos; <br>
+✓ Redução do tempo gasto com atendimento manual; <br>
+✓ Facilidade de comunicação entre clientes e veterinária; <br>
+✓ Melhor experiência para os tutores; <br>
+✓ Divulgação profissional dos serviços veterinários; <br>
+✓ Centralização das informações dos clientes e pets. <br>
 
 <b>Requisitos Funcionais </b> <br>
-✓ O sistema deve permitir o cadastro de tutores.
-✓ O sistema deve permitir o cadastro de pets vinculados aos tutores.
-✓ O sistema deve permitir o agendamento de consultas e serviços veterinários.
-✓ O sistema deve permitir consultar agendamentos através do e-mail do tutor.
-✓ O sistema deve exibir informações sobre os serviços oferecidos pela veterinária.
-✓ O sistema deve permitir que a veterinária visualize os agendamentos realizados.
+✓ O sistema deve permitir o cadastro de tutores. <br>
+✓ O sistema deve permitir o cadastro de pets vinculados aos tutores. <br>
+✓ O sistema deve permitir o agendamento de consultas e serviços veterinários. <br>
+✓ O sistema deve permitir consultar agendamentos através do e-mail do tutor. <br>
+✓ O sistema deve exibir informações sobre os serviços oferecidos pela veterinária. <br>
+✓ O sistema deve permitir que a veterinária visualize os agendamentos realizados.<br> 
 ✓ O sistema deve permitir cancelar ou alterar agendamentos.
 
 
