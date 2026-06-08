@@ -1,269 +1,485 @@
-/* Estilo base do documento */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f8f8f8;
-    color: #222;
+/* ====== Estilos globais ====== */
+:root {
+    --fundo: #f7f4ef;
+    --branco: #ffffff;
+    --texto-escuro: #212121;
+    --cinza-suave: #8a7f78;
+    --primaria: #7f5a3f;
+    --secundaria: #c9b299;
+    --botao: #00BCD4;
+    --botao-claro: #E6E6E6;
+    --sombra: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
-/* Cabeçalho principal que contém logo, menu e botões */
-header {
-    background: #00bcd4;
-    color: #fff;
-    padding: 18px 24px;
-}
-
-/* Área do nome e subtítulo no topo */
-.logo {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    margin-bottom: 18px;
-}
-
-/* Barra de navegação principal */
-nav {
-    width: 100%;
-}
-
-/* Lista do menu principal */
-nav ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
-    list-style: none;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-/* Cada item do menu */
-nav li {
-    margin: 0;
+html {
+    scroll-behavior: smooth;
 }
 
-/* Links do menu */
-nav a {
-    color: #ffffff;
+body {
+    font-family: 'Inter', sans-serif;
+    background: var(--fundo);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
     text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 6px;
-    transition: background 0.2s ease;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+
+/* ====== Cabeçalho / Menu ====== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 48px;
+    background: rgba(255, 255, 255, 0.92);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.logo p {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+nav ul {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+nav a {
+    font-size: 0.95rem;
+    color: var(--texto-escuro);
+    transition: color 0.2s ease;
 }
 
 nav a:hover {
-    background: rgba(255, 255, 255, 0.2);
+    color: var(--primaria);
 }
 
-/* Botões que aparecem ao lado do menu */
 .botoes-menu {
     display: flex;
-    justify-content: center;
-    gap: 14px;
-    margin-top: 16px;
-    flex-wrap: wrap;
+    gap: 12px;
 }
 
 .botoes-menu button {
-    background: rgba(255, 255, 255, 0.18);
-    border: 1px solid rgba(255, 255, 255, 0.35);
-    color: #ffffff;
     padding: 10px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 999px;
+    background: var(--botao);
+    color: var(--branco);
+    font-weight: 600;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .botoes-menu button:hover {
-    background: rgba(255, 255, 255, 0.28);
     transform: translateY(-2px);
+    background: #00a3b8;
 }
 
-/* Seção hero no início da página */
+/* ====== Seção Hero ====== */
 .hero {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding: 40px 24px;
-    background: #ffffff;
+    gap: 40px;
+    min-height: calc(100vh - 100px);
+    padding: 80px 48px;
 }
 
-/* Texto principal dentro do hero */
-.hero .texto {
-    max-width: 540px;
+.hero .texto h1 {
+    font-size: clamp(2.8rem, 4vw, 4.8rem);
+    max-width: 620px;
+    margin-bottom: 24px;
 }
 
-/* Destaque de cor no texto do hero */
-.hero span {
-    color: #00bcd4;
+.hero .texto p {
+    font-size: 1.05rem;
+    max-width: 580px;
+    color: var(--cinza-suave);
 }
 
-/* Imagem do hero */
-.imagem img {
+.hero .imagem {
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.hero .imagem img {
     width: 100%;
-    max-width: 420px;
-    border-radius: 16px;
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Seção de chamada para ação */
+/* ====== Seção Chamada ====== */
 .chamada {
     text-align: center;
-    background: #00bcd4;
-    color: #fff;
-    padding: 30px 24px;
+    padding: 42px 24px;
+    background: var(--primaria);
+    color: var(--branco);
 }
 
-/* Seção de serviços */
+.chamada h2 {
+    font-size: clamp(1.6rem, 2vw, 2.4rem);
+}
+
+/* ====== Sessão de Serviços ====== */
 .servicos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 40px 24px;
-    background: #ffffff;
-}
-
-/* Texto e cards de serviços */
-.texto-servicos {
-    flex: 1;
-    min-width: 280px;
     display: grid;
-    gap: 18px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 36px;
+    padding: 80px 48px;
+    align-items: center;
 }
 
-/* Imagem de serviços */
+.texto-servicos h2 {
+    margin-bottom: 28px;
+    font-size: 2.2rem;
+}
+
+.texto-servicos div {
+    margin-bottom: 24px;
+}
+
+.texto-servicos h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.texto-servicos p {
+    color: var(--cinza-suave);
+}
+
+.imagem-servicos {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
 .imagem-servicos img {
     width: 100%;
-    border-radius: 16px;
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Botão central após serviços */
+/* ====== Botão central de serviço ====== */
 .btn-centro {
-    text-align: center;
-    padding: 24px;
+    display: flex;
+    justify-content: center;
+    padding: 24px 0 12px;
 }
 
-.btn-centro button {
-    background: #00bcd4;
-    color: #fff;
+.btn-servicos {
+    background: var(--botao);
+    color: var(--branco);
     padding: 14px 28px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0, 188, 212, 0.2);
 }
 
-.btn-centro button:hover {
-    background: #019bb0;
-    transform: translateY(-2px);
+.btn-servicos:hover {
+    opacity: 0.95;
 }
 
-/* Seção de agendamento */
+/* ====== Seção de Agendamento ====== */
 .agendamento {
     display: grid;
-    gap: 24px;
-    padding: 40px 24px;
-    background: #f2f7fb;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 80px 48px;
 }
 
-/* Informações laterais no agendamento */
-.agendamento .info {
-    max-width: 520px;
+.agendamento .info h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-/* Formulário de agendamento */
+.agendamento .info p {
+    max-width: 540px;
+    color: var(--cinza-suave);
+    margin-bottom: 20px;
+}
+
+.agendamento ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.agendamento li {
+    padding-left: 24px;
+    position: relative;
+    color: var(--texto-escuro);
+}
+
+.agendamento li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primaria);
+}
+
 .agendamento form {
     display: grid;
-    gap: 14px;
-    max-width: 520px;
+    gap: 16px;
+    background: var(--branco);
+    padding: 32px;
+    border-radius: 24px;
+    box-shadow: var(--sombra);
 }
 
 .agendamento label {
     font-weight: 600;
+    color: var(--texto-escuro);
 }
 
 .agendamento input,
 .agendamento select,
 .agendamento textarea {
     width: 100%;
-    padding: 12px 14px;
-    border-radius: 10px;
-    border: 1px solid #cfd8e4;
-    font: inherit;
+    padding: 14px 16px;
+    border: 1px solid #ddd6cd;
+    border-radius: 16px;
+    outline: none;
+    color: var(--texto-escuro);
+}
+
+.agendamento input:focus,
+.agendamento select:focus,
+.agendamento textarea:focus {
+    border-color: var(--primaria);
+    box-shadow: 0 0 0 3px rgba(127, 90, 63, 0.12);
 }
 
 .agendamento textarea {
-    min-height: 120px;
+    min-height: 140px;
     resize: vertical;
 }
 
-.agendamento form button {
-    width: fit-content;
-    background: #00bcd4;
-    color: #fff;
-    border: none;
-    padding: 14px 26px;
-    border-radius: 10px;
-    cursor: pointer;
+.agendamento button {
+    margin-top: 8px;
+    padding: 14px 20px;
+    border-radius: 16px;
+    background: var(--botao);
+    color: var(--branco);
+    font-weight: 700;
 }
 
-.agendamento form button:hover {
-    background: #019bb0;
-}
-
-/* Seção sobre */
+/* ====== Seção Sobre ====== */
 .sobre {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    padding: 40px 24px;
-    background: #ffffff;
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 36px;
+    padding: 80px 48px;
+    align-items: center;
 }
 
-.texto-sobre {
-    flex: 1;
-    min-width: 280px;
+.texto-sobre h2 {
+    font-size: 2.2rem;
+    margin-bottom: 22px;
+}
+
+.texto-sobre p {
+    max-width: 560px;
+    color: var(--cinza-suave);
+    margin-bottom: 24px;
+}
+
+.texto-sobre ul {
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.texto-sobre li {
+    padding-left: 22px;
+    position: relative;
+    color: var(--texto-escuro);
+}
+
+.texto-sobre li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primaria);
+}
+
+.imagem-sobre {
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
 }
 
 .imagem-sobre img {
     width: 100%;
-    border-radius: 16px;
-    display: block;
+    height: 100%;
+    object-fit: cover;
 }
 
-/* Seção de feedbacks */
+/* ====== Seção Feedbacks ====== */
 .feedbacks {
-    padding: 40px 24px;
-    background: #f2f7fb;
+    padding: 80px 48px;
+    background: #fff7eb;
 }
 
-.feedbacks .cards {
+.feedbacks h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.2rem;
+}
+
+.cards {
     display: grid;
-    gap: 18px;
-    margin-top: 24px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
 }
 
-/* Lista de itens usados em várias seções */
-ul {
-    padding-left: 20px;
+.card {
+    background: var(--branco);
+    padding: 28px;
+    border-radius: 28px;
+    box-shadow: var(--sombra);
 }
 
-ul li {
-    margin-bottom: 10px;
+.card p {
+    color: var(--cinza-suave);
+    margin-bottom: 20px;
 }
 
-/* Ajustes para telas menores */
-@media (max-width: 860px) {
+.card h4 {
+    margin-bottom: 6px;
+    font-size: 1rem;
+}
+
+.card h5 {
+    color: var(--primaria);
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+/* ====== Seção Contato ====== */
+.contato {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 80px 48px;
+    align-items: center;
+}
+
+.contato h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+}
+
+.contato p {
+    color: var(--cinza-suave);
+    margin-bottom: 12px;
+}
+
+.botoes-contato {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+.botoes-contato button {
+    flex: 1 1 140px;
+    padding: 14px 18px;
+    border-radius: 18px;
+    background: var(--botao);
+    color: var(--branco);
+    font-weight: 700;
+}
+
+/* ====== Rodapé ====== */
+footer {
+    text-align: center;
+    padding: 24px 12px;
+    font-size: 0.95rem;
+    color: var(--cinza-suave);
+}
+
+/* ====== Ajustes responsivos ====== */
+@media (max-width: 1024px) {
     .hero,
     .servicos,
-    .sobre {
-        flex-direction: column;
+    .agendamento,
+    .sobre,
+    .contato {
+        grid-template-columns: 1fr;
+    }
+
+    header {
+        flex-wrap: wrap;
+        gap: 18px;
+        padding: 24px 28px;
+    }
+
+    .hero,
+    .servicos,
+    .agendamento,
+    .sobre,
+    .contato {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+@media (max-width: 700px) {
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
     }
 
     .botoes-menu {
         justify-content: center;
+        width: 100%;
+    }
+
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
+
+    .hero .texto h1 {
+        font-size: 2.8rem;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
     }
 }
