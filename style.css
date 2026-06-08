@@ -130,7 +130,9 @@ nav a:hover {
 }
 
 .hero .imagem {
-    border-radius: 30px;
+    width: min(420px, 100%);
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
     overflow: hidden;
     box-shadow: var(--sombra);
 }
@@ -139,6 +141,7 @@ nav a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 /* Agende agora um horário para seu pet*/
