@@ -1,92 +1,250 @@
-// Script principal do site
-document.addEventListener('DOMContentLoaded', () => {
-   const agendamentoSection = document.querySelector('.agendamento');
-   const agendamentoForm = document.querySelector('.agendamento form');
-   const headerAgendamentoBtn = document.querySelector('header .botoes-menu button');
-   const botoesContato = document.querySelectorAll('.botoes-contato button');
+// 1. Banco de dados simulado (Horários que já estão ocupados)
+const agendaOcupada = {
+  "2026-06-15": ["08:00", "10:00", "14:00"],
+  "2026-06-16": ["15:00", "16:00", "18:00"]
+};
 
-   function scrollTo(el) {
-      if (!el) return;
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-   }
+// 2. Todos os horários que a empresa oferece
+const horariosFuncionamento = ["08:00", "10:00", "14:00", "16:00", "18:00"];
 
-   // Botão principal do cabeçalho leva ao agendamento
-   if (headerAgendamentoBtn && agendamentoSection) {
-      headerAgendamentoBtn.addEventListener('click', (e) => {
-         e.preventDefault();
-         scrollTo(agendamentoSection);
-         const firstInput = agendamentoForm?.querySelector('input, select, textarea');
-         firstInput?.focus();
-      });
-   }
+// 3. Variáveis de controle
+const adminCredenciais = { usuario: "admin", senha: "1234" };
+let horarioSelecionado = null;
+let agendamentos = [];
 
-   // Função simples de toast
-   function showToast(message, success = true) {
-      const toast = document.createElement('div');
-      toast.textContent = message;
-      Object.assign(toast.style, {
-         position: 'fixed',
-         right: '20px',
-         bottom: '20px',
-         background: success ? 'rgba(0,150,136,0.95)' : 'rgba(220,53,69,0.95)',
-         color: '#fff',
-         padding: '12px 16px',
-         borderRadius: '12px',
-         boxShadow: '0 6px 18px rgba(0,0,0,0.15)',
-         zIndex: 9999,
-         fontWeight: 600,
-      });
-      document.body.appendChild(toast);
-      setTimeout(() => toast.remove(), 4200);
-   }
+// 4. Variáveis dos elementos (inicializadas no DOMContentLoaded)
+let campoData, containerHorarios, formulario;
+let btnAdmin, adminLoginSection, painelAdmin, adminRelatorio, btnLoginAdmin, btnCancelarAdmin, btnLogoutAdmin;
 
-   // Validação simples de email
-   function isValidEmail(email) {
-      return /\S+@\S+\.\S+/.test(email);
-   }
+// 5. Definir data mínima (hoje)
+function definirDataMinima() {
+  const hoje = new Date().toISOString().split('T')[0];
+  campoData.setAttribute("min", hoje);
+}
 
-   // Tratamento do formulário de agendamento
-   if (agendamentoForm) {
-      agendamentoForm.addEventListener('submit', (e) => {
-         e.preventDefault();
+// 6. Função que desenha os horários na tela
+function atualizarTela(listaDeHorarios) {
+  containerHorarios.innerHTML = "";
 
-         const textInputs = agendamentoForm.querySelectorAll('input[type="text"]');
-         const tutorInput = textInputs[0];
-         const petInput = textInputs[1];
-         const emailInput = agendamentoForm.querySelector('input[type="email"]');
-         const serviceSelect = agendamentoForm.querySelector('select');
-         const dateInput = agendamentoForm.querySelector('input[type="date"]');
+  if (listaDeHorarios.length === 0) {
+    containerHorarios.innerHTML = "<p>Desculpe, não há horários disponíveis para este dia.</p>";
+    return;
+  }
 
-         // validações
-         if (!tutorInput?.value.trim()) return showToast('Por favor, informe o nome do(a) tutor(a).', false);
-         if (!isValidEmail(emailInput?.value || '')) return showToast('Por favor, informe um e‑mail válido.', false);
-         if (!petInput?.value.trim()) return showToast('Por favor, informe o nome do pet.', false);
-         if (!serviceSelect || serviceSelect.selectedIndex === 0) return showToast('Selecione um serviço.', false);
-         if (!dateInput?.value) return showToast('Selecione a data desejada.', false);
+  // Criar título
+  const titulo = document.createElement("p");
+  titulo.textContent = "Horários disponíveis:";
+  titulo.style.fontWeight = "bold";
+  titulo.style.marginBottom = "10px";
+  containerHorarios.appendChild(titulo);
 
-         // Aqui você pode enviar os dados para um servidor via fetch/ajax.
-         // Por enquanto apenas simulamos sucesso.
-         showToast('Agendamento enviado com sucesso!');
-         agendamentoForm.reset();
-      });
-   }
+  // Criar botões de horário
+  listaDeHorarios.forEach(horario => {
+    const botao = document.createElement("button");
+    botao.type = "button";
+    botao.textContent = horario;
+    botao.classList.add("botao-horario");
 
-   // Botões de contato: primeiro botão -> agendamento; segundo -> WhatsApp
-   if (botoesContato.length) {
-      botoesContato.forEach((btn, i) => {
-         btn.addEventListener('click', (e) => {
-            if (i === 0) {
-               // Agendamento
-               e.preventDefault();
-               scrollTo(agendamentoSection);
-               agendamentoForm?.querySelector('input')?.focus();
-            } else if (i === 1) {
-               // WhatsApp — usa número mostrado na página (ajuste se necessário)
-               const waNumber = '5595999999999';
-               window.open('https://wa.me/' + waNumber, '_blank');
-            }
-         });
-      });
-   }
+    botao.addEventListener("click", function(e) {
+      e.preventDefault();
+      selecionarHorario(horario, botao);
+    });
 
+    containerHorarios.appendChild(botao);
+  });
+}
+
+// 7. Função para selecionar horário
+function selecionarHorario(horario, botao) {
+  // Remover classe ativa de outros botões
+  const botoesAtivos = containerHorarios.querySelectorAll(".botao-horario.ativo");
+  botoesAtivos.forEach(btn => btn.classList.remove("ativo"));
+
+  // Marcar o botão como selecionado
+  botao.classList.add("ativo");
+  horarioSelecionado = horario;
+
+  console.log(`Horário selecionado: ${horario}`);
+}
+
+// 8. Inicializar quando a página carrega
+document.addEventListener("DOMContentLoaded", function() {
+  // Mapear elementos do HTML
+  campoData = document.getElementById("data-selecionada");
+  containerHorarios = document.getElementById("container-horarios");
+  formulario = document.querySelector("form");
+  btnAdmin = document.getElementById("btn-admin");
+  adminLoginSection = document.getElementById("admin-login");
+  painelAdmin = document.getElementById("painel-admin");
+  adminRelatorio = document.getElementById("admin-relatorio");
+  btnLoginAdmin = document.getElementById("login-admin");
+  btnCancelarAdmin = document.getElementById("cancelar-admin");
+  btnLogoutAdmin = document.getElementById("logout-admin");
+
+  // Definir data mínima
+  definirDataMinima();
+
+  // Abrir formulário admin
+  btnAdmin.addEventListener("click", function() {
+    mostrarLoginAdmin();
+  });
+
+  btnLoginAdmin.addEventListener("click", function() {
+    const usuario = document.getElementById("admin-usuario").value.trim();
+    const senha = document.getElementById("admin-senha").value.trim();
+
+    if (usuario === adminCredenciais.usuario && senha === adminCredenciais.senha) {
+      fecharLoginAdmin();
+      abrirPainelAdmin();
+    } else {
+      alert("Usuário ou senha incorretos. Tente novamente.");
+    }
+  });
+
+  btnCancelarAdmin.addEventListener("click", function() {
+    fecharLoginAdmin();
+  });
+
+  btnLogoutAdmin.addEventListener("click", function() {
+    painelAdmin.classList.add("hidden");
+  });
+
+  // Escutar mudança de data
+  campoData.addEventListener("change", function() {
+    const dataEscolhida = campoData.value;
+
+    if (!dataEscolhida) {
+      containerHorarios.innerHTML = "<p>Selecione uma data válida.</p>";
+      horarioSelecionado = null;
+      return;
+    }
+
+    // Verificar se é sábado ou domingo
+    const data = new Date(dataEscolhida + "T00:00:00");
+    const diaSemana = data.getDay();
+
+    if (diaSemana === 0 || diaSemana === 6) {
+      alert("Desculpe, não estamos atendendo aos finais de semana. Por favor, escolha um dia entre segunda e sexta-feira.");
+      campoData.value = "";
+      containerHorarios.innerHTML = "<p>Selecione uma data para ver os horários disponíveis.</p>";
+      horarioSelecionado = null;
+      return;
+    }
+
+    // Limpar horário selecionado ao mudar a data
+    horarioSelecionado = null;
+
+    // Filtrar horários livres
+    let horariosOcupados = agendaOcupada[dataEscolhida] || [];
+    let horariosLivres = horariosFuncionamento.filter(horario => !horariosOcupados.includes(horario));
+
+    atualizarTela(horariosLivres);
+  });
+
+  // Validar e enviar formulário
+  formulario.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    // Capturar dados do formulário
+    const tutor = document.getElementById("tutor").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pet = document.getElementById("pet").value.trim();
+    const servico = document.getElementById("servico").value;
+    const data = campoData.value;
+    const observacoes = document.getElementById("observacoes").value.trim();
+
+    // Validações
+    if (!tutor) {
+      alert("Por favor, preencha o nome do tutor.");
+      return;
+    }
+
+    if (!email) {
+      alert("Por favor, preencha o email.");
+      return;
+    }
+
+    if (!validarEmail(email)) {
+      alert("Por favor, insira um email válido.");
+      return;
+    }
+
+    if (!pet) {
+      alert("Por favor, preencha o nome do pet.");
+      return;
+    }
+
+    if (servico === "Selecione o serviço") {
+      alert("Por favor, selecione um serviço.");
+      return;
+    }
+
+    if (!data) {
+      alert("Por favor, selecione uma data.");
+      return;
+    }
+
+    if (!horarioSelecionado) {
+      alert("Por favor, selecione um horário.");
+      return;
+    }
+
+    // Se passou em todas as validações
+    const agendamento = {
+      tutor,
+      email,
+      pet,
+      servico,
+      data,
+      horario: horarioSelecionado,
+      observacoes,
+      dataAgendamento: new Date().toLocaleString("pt-BR")
+    };
+
+    console.log("Agendamento confirmado:", agendamento);
+    alert(`✓ Agendamento confirmado!\n\nTutor: ${tutor}\nPet: ${pet}\nData: ${data}\nHorário: ${horarioSelecionado}\n\nUm email de confirmação será enviado para ${email}`);
+
+    // Salvar agendamento para o painel admin
+    agendamentos.push(agendamento);
+
+    // Limpar formulário
+    formulario.reset();
+    containerHorarios.innerHTML = "<p>Selecione uma data para ver os horários disponíveis.</p>";
+    horarioSelecionado = null;
+  });
 });
+
+function mostrarLoginAdmin() {
+  adminLoginSection.classList.remove("hidden");
+  painelAdmin.classList.add("hidden");
+}
+
+function fecharLoginAdmin() {
+  adminLoginSection.classList.add("hidden");
+  document.getElementById("admin-usuario").value = "";
+  document.getElementById("admin-senha").value = "";
+}
+
+function abrirPainelAdmin() {
+  atualizarRelatorioAdmin();
+  painelAdmin.classList.remove("hidden");
+}
+
+function atualizarRelatorioAdmin() {
+  if (agendamentos.length === 0) {
+    adminRelatorio.textContent = "Nenhum agendamento registrado ainda.";
+    return;
+  }
+
+  adminRelatorio.textContent = agendamentos
+    .map((item, index) => {
+      return `${index + 1}. Tutor: ${item.tutor} | Pet: ${item.pet} | Serviço: ${item.servico} | Data: ${item.data} | Horário: ${item.horario}`;
+    })
+    .join("\n");
+}
+
+// 9. Função auxiliar para validar email
+function validarEmail(email) {
+  const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return regexEmail.test(email);
+}

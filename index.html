@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <script src="script.js"></script>
 
     <!-- MENU -->
     <header>
@@ -28,8 +29,7 @@
 
         <div class="botoes-menu">
             <button><a href="#agendamento">Agendamento</a></button>
-            <button><a href="#espaco-tutor">Espaço tutor</a></button>
-        </div>
+            <button><a href="espaco_tutor.html">Espaço tutor</a></button>            <button id="btn-admin" type="button">Admin</button>        </div>
     </header>
 
     <!-- HERO -->
@@ -107,17 +107,17 @@
         </div>
 
         <form>
-            <label>Tutor(a)</label>
-            <input type="text">
+            <label for="tutor">Tutor(a)</label>
+            <input id="tutor" type="text">
 
-            <label>Email</label>
-            <input type="email">
+            <label for="email">Email</label>
+            <input id="email" type="email">
 
-            <label>Nome do pet</label>
-            <input type="text">
+            <label for="pet">Nome do pet</label>
+            <input id="pet" type="text">
 
-            <label>Serviço desejado</label>
-            <select>
+            <label for="servico">Serviço desejado</label>
+            <select id="servico">
                 <option>Selecione o serviço</option>
                 <option>Atendimento domiciliar</option>
                 <option>Aplicação de vacinas</option>
@@ -129,15 +129,43 @@
                 <option>Administração de medicamentos</option>
             </select>
 
-            <label>Data desejada</label>
-            <input type="date">
+            <label for="data-selecionada">Escolha uma data:</label>
+            <input type="date" id="data-selecionada">
 
-            <label>Observações</label>
-            <textarea></textarea>
+            <div id="container-horarios">
+                <p>Selecione uma data para ver os horários disponíveis.</p>
+            </div>
+
+            <label for="observacoes">Observações</label>
+            <textarea id="observacoes"></textarea>
 
             <button type="submit">Confirmar agendamento</button>
         </form>
 
+    </section>
+
+    <!-- ADMIN -->
+    <section id="admin-login" class="admin-secao hidden">
+        <div class="caixa-admin">
+            <h2>Login Admin</h2>
+            <label for="admin-usuario">Usuário</label>
+            <input id="admin-usuario" type="text" placeholder="admin">
+            <label for="admin-senha">Senha</label>
+            <input id="admin-senha" type="password" placeholder="••••••">
+            <div class="grupo-botoes-admin">
+                <button id="login-admin" type="button">Entrar</button>
+                <button id="cancelar-admin" type="button" class="botao-secundario">Cancelar</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="painel-admin" class="painel-admin hidden">
+        <div class="caixa-admin">
+            <h2>Painel Administrativo</h2>
+            <p>Bem-vindo, admin! Veja abaixo os agendamentos confirmados.</p>
+            <pre id="admin-relatorio">Nenhum agendamento registrado ainda.</pre>
+            <button id="logout-admin" type="button">Sair</button>
+        </div>
     </section>
 
     <!-- SOBRE -->
