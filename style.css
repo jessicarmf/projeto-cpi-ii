@@ -181,7 +181,7 @@ nav a:hover {
 }
 
 .imagem-servicos {
-    border-radius: 28px;
+    border-radius: 50px;
     overflow: hidden;
     box-shadow: var(--sombra);
 }
@@ -336,7 +336,7 @@ nav a:hover {
 }
 
 .imagem-sobre {
-    border-radius: 28px;
+    border-radius: 50px;
     overflow: hidden;
     box-shadow: var(--sombra);
 }
@@ -530,16 +530,17 @@ body > h1 {
 }
 
 .servicos-imagem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
 .servicos-imagem img {
     width: 100%;
-    max-width: 550px;
-    border-radius: 28px;
-    box-shadow: var(--sombra);
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
