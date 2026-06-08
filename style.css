@@ -5,8 +5,8 @@
     --texto-escuro: #212121;
     --cinza-suave: #8a7f78;
     --banner: #B2EBF2; /* cor fixa para banners */
-    --primaria: #B2EBF2;
-    --secundaria: #80DEEA;
+    --primaria: #828282;
+    --secundaria: #ffffff;
     --botao: #00BCD4;
     --botao-claro: #E6E6E6;
     --sombra: 0 12px 30px rgba(0, 0, 0, 0.08);
@@ -24,7 +24,7 @@ html {
 
 body {
     font-family: 'Inter', sans-serif;
-    background: var(--fundo);
+    background: #ffffff;
     color: var(--texto-escuro);
     line-height: 1.6;
 }
@@ -51,13 +51,13 @@ button {
     border: none;
 }
 
-/* ====== Cabeçalho / Menu ====== */
+/* header + menu */
 header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 24px 48px;
-    background: #FFFFFF;
+    background: #00BCD4;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -68,6 +68,7 @@ header {
     font-size: 1rem;
     font-weight: 700;
     line-height: 1.3;
+    color: var(--branco);
 }
 
 nav ul {
@@ -78,12 +79,13 @@ nav ul {
 
 nav a {
     font-size: 0.95rem;
-    color: var(--texto-escuro);
+    color: var(--branco);
     transition: color 0.2s ease;
 }
 
 nav a:hover {
-    color: var(--primaria);
+    color: #ffffff;
+    opacity: 0.8;
 }
 
 .botoes-menu {
@@ -94,15 +96,15 @@ nav a:hover {
 .botoes-menu button {
     padding: 10px 18px;
     border-radius: 999px;
-    background: var(--botao);
-    color: var(--branco);
+    background: var(--branco);
+    color: #00BCD4;
     font-weight: 600;
     transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .botoes-menu button:hover {
     transform: translateY(-2px);
-    background: #00a3b8;
+    background: #f0f0f0;
 }
 
 /* ====== Seção Hero ====== */
@@ -139,19 +141,19 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* ====== Seção Chamada ====== */
+/* Agende agora um horário para seu pet*/
 .chamada {
     text-align: center;
     padding: 42px 24px;
     background: var(--banner);
-    color: var(--branco);
+    color: #000000;
 }
 
 .chamada h2 {
     font-size: clamp(1.6rem, 2vw, 2.4rem);
 }
 
-/* ====== Sessão de Serviços ====== */
+/* serviços */
 .servicos {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
@@ -294,7 +296,7 @@ nav a:hover {
     font-weight: 700;
 }
 
-/* ====== Seção Sobre ====== */
+/* sobre*/
 .sobre {
     display: grid;
     grid-template-columns: 0.95fr 1.05fr;
@@ -327,7 +329,7 @@ nav a:hover {
 }
 
 .texto-sobre li::before {
-    content: '•';
+    content: '✓';
     position: absolute;
     left: 0;
     color: var(--primaria);
@@ -345,10 +347,10 @@ nav a:hover {
     object-fit: cover;
 }
 
-/* ====== Seção Feedbacks ====== */
+/* feedbacks*/
 .feedbacks {
     padding: 80px 48px;
-    background: #E0F7FA;
+    background: #B2EBF2;
 }
 
 .feedbacks h2 {
@@ -420,15 +422,16 @@ nav a:hover {
     font-weight: 700;
 }
 
-/* ====== Rodapé ====== */
+/* footer */
 footer {
     text-align: center;
     padding: 24px 12px;
     font-size: 0.95rem;
-    color: var(--cinza-suave);
+    color: var(--branco);
+    background: #00BCD4;
 }
 
-/* ====== Ajustes responsivos ====== */
+/* responsividade*/
 @media (max-width: 1024px) {
     .hero,
     .servicos,
@@ -482,5 +485,120 @@ footer {
 
     .cards {
         grid-template-columns: 1fr;
+    }
+}
+
+/* ====== Página de Serviços ====== */
+body > h1 {
+    text-align: center;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    padding: 60px 48px 40px;
+    color: var(--texto-escuro);
+    margin: 0;
+}
+
+/* Seções de serviços com layout intercalado */
+.servicos-secao {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding: 60px 48px;
+    align-items: center;
+}
+
+/* Intercala cores de fundo */
+.servicos-secao:nth-of-type(even) {
+    background: #E0F7FA;
+}
+
+.servicos-texto h2 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+    margin-top: 32px;
+    color: var(--texto-escuro);
+}
+
+.servicos-texto h2:first-child {
+    margin-top: 0;
+}
+
+.servicos-texto p {
+    color: var(--cinza-suave);
+    margin-bottom: 24px;
+    line-height: 1.7;
+    max-width: 500px;
+}
+
+.servicos-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.servicos-imagem img {
+    width: 100%;
+    max-width: 550px;
+    border-radius: 28px;
+    box-shadow: var(--sombra);
+    display: block;
+}
+
+/* Inverte a ordem para a segunda seção */
+.servicos-invertido {
+    grid-template-columns: 1fr 1fr;
+}
+
+.servicos-invertido .servicos-imagem {
+    order: -1;
+}
+
+/* Responsivo */
+@media (max-width: 1024px) {
+    .servicos-secao {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 28px;
+    }
+
+    .servicos-invertido {
+        grid-template-columns: 1fr;
+    }
+
+    .servicos-invertido .servicos-imagem {
+        order: 0;
+    }
+
+    body > h1 {
+        padding: 40px 28px 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    .servicos-secao {
+        padding: 35px 20px;
+        gap: 30px;
+    }
+
+    .servicos-texto h2 {
+        font-size: 1.2rem;
+        margin-top: 25px;
+    }
+
+    .servicos-texto h2:first-child {
+        margin-top: 0;
+    }
+
+    .servicos-texto p {
+        font-size: 0.95rem;
+        margin-bottom: 18px;
+    }
+
+    .servicos-imagem img {
+        max-width: 100%;
+    }
+
+    body > h1 {
+        padding: 30px 20px 25px;
+        font-size: 2rem;
     }
 }
