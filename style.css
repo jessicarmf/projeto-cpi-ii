@@ -4,8 +4,9 @@
     --branco: #ffffff;
     --texto-escuro: #212121;
     --cinza-suave: #8a7f78;
-    --primaria: #7f5a3f;
-    --secundaria: #c9b299;
+    --banner: #B2EBF2; /* cor fixa para banners */
+    --primaria: #B2EBF2;
+    --secundaria: #80DEEA;
     --botao: #00BCD4;
     --botao-claro: #E6E6E6;
     --sombra: 0 12px 30px rgba(0, 0, 0, 0.08);
@@ -56,7 +57,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 24px 48px;
-    background: rgba(255, 255, 255, 0.92);
+    background: #FFFFFF;
     position: sticky;
     top: 0;
     z-index: 10;
@@ -142,7 +143,7 @@ nav a:hover {
 .chamada {
     text-align: center;
     padding: 42px 24px;
-    background: var(--primaria);
+    background: var(--banner);
     color: var(--branco);
 }
 
@@ -266,7 +267,7 @@ nav a:hover {
 .agendamento textarea {
     width: 100%;
     padding: 14px 16px;
-    border: 1px solid #ddd6cd;
+    border: 1px solid #B3E5FC;
     border-radius: 16px;
     outline: none;
     color: var(--texto-escuro);
@@ -276,7 +277,7 @@ nav a:hover {
 .agendamento select:focus,
 .agendamento textarea:focus {
     border-color: var(--primaria);
-    box-shadow: 0 0 0 3px rgba(127, 90, 63, 0.12);
+    box-shadow: 0 0 0 3px rgba(178, 235, 242, 0.12);
 }
 
 .agendamento textarea {
@@ -347,7 +348,7 @@ nav a:hover {
 /* ====== Seção Feedbacks ====== */
 .feedbacks {
     padding: 80px 48px;
-    background: #fff7eb;
+    background: #E0F7FA;
 }
 
 .feedbacks h2 {
