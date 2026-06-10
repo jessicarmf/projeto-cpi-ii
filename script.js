@@ -84,31 +84,6 @@ document.addEventListener("DOMContentLoaded", function() {
   // Definir data mínima
   definirDataMinima();
 
-  // Abrir formulário admin
-  btnAdmin.addEventListener("click", function() {
-    mostrarLoginAdmin();
-  });
-
-  btnLoginAdmin.addEventListener("click", function() {
-    const usuario = document.getElementById("admin-usuario").value.trim();
-    const senha = document.getElementById("admin-senha").value.trim();
-
-    if (usuario === adminCredenciais.usuario && senha === adminCredenciais.senha) {
-      fecharLoginAdmin();
-      abrirPainelAdmin();
-    } else {
-      alert("Usuário ou senha incorretos. Tente novamente.");
-    }
-  });
-
-  btnCancelarAdmin.addEventListener("click", function() {
-    fecharLoginAdmin();
-  });
-
-  btnLogoutAdmin.addEventListener("click", function() {
-    painelAdmin.classList.add("hidden");
-  });
-
   // Escutar mudança de data
   campoData.addEventListener("change", function() {
     const dataEscolhida = campoData.value;
@@ -213,35 +188,6 @@ document.addEventListener("DOMContentLoaded", function() {
     horarioSelecionado = null;
   });
 });
-
-function mostrarLoginAdmin() {
-  adminLoginSection.classList.remove("hidden");
-  painelAdmin.classList.add("hidden");
-}
-
-function fecharLoginAdmin() {
-  adminLoginSection.classList.add("hidden");
-  document.getElementById("admin-usuario").value = "";
-  document.getElementById("admin-senha").value = "";
-}
-
-function abrirPainelAdmin() {
-  atualizarRelatorioAdmin();
-  painelAdmin.classList.remove("hidden");
-}
-
-function atualizarRelatorioAdmin() {
-  if (agendamentos.length === 0) {
-    adminRelatorio.textContent = "Nenhum agendamento registrado ainda.";
-    return;
-  }
-
-  adminRelatorio.textContent = agendamentos
-    .map((item, index) => {
-      return `${index + 1}. Tutor: ${item.tutor} | Pet: ${item.pet} | Serviço: ${item.servico} | Data: ${item.data} | Horário: ${item.horario}`;
-    })
-    .join("\n");
-}
 
 // 9. Função auxiliar para validar email
 function validarEmail(email) {
