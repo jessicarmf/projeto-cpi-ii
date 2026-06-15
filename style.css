@@ -329,78 +329,6 @@ nav a:hover {
     display: none !important;
 }
 
-.admin-secao,
-.painel-admin {
-    display: flex;
-    justify-content: center;
-    padding: 40px 48px;
-    background: rgba(0, 0, 0, 0.02);
-}
-
-.caixa-admin {
-    width: 100%;
-    max-width: 420px;
-    background: var(--branco);
-    padding: 32px;
-    border-radius: 24px;
-    box-shadow: var(--sombra);
-    display: grid;
-    gap: 16px;
-}
-
-.caixa-admin h2 {
-    margin-bottom: 8px;
-}
-
-.caixa-admin label {
-    font-weight: 600;
-}
-
-.caixa-admin input {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 14px;
-    border: 1px solid #B3E5FC;
-    outline: none;
-}
-
-.caixa-admin input:focus {
-    border-color: var(--primaria);
-    box-shadow: 0 0 0 3px rgba(178, 235, 242, 0.12);
-}
-
-.grupo-botoes-admin {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-}
-
-.grupo-botoes-admin button,
-#logout-admin {
-    flex: 1;
-    padding: 12px 18px;
-    border-radius: 16px;
-    background: var(--botao);
-    color: var(--branco);
-    border: none;
-    font-weight: 700;
-}
-
-.botao-secundario {
-    background: #E0E0E0;
-    color: var(--texto-escuro);
-}
-
-.caixa-admin pre {
-    white-space: pre-wrap;
-    word-break: break-word;
-    background: #F8F8F8;
-    padding: 14px;
-    border-radius: 16px;
-    border: 1px solid #E0E0E0;
-    min-height: 120px;
-}
-
 /* sobre*/
 .sobre {
     display: grid;
@@ -766,6 +694,156 @@ nav a {
     color: black;
 }
 
+/* ====== Página de Acesso - Perfil do Pet ====== */
+.pet-perfil {
+    padding: 80px 48px;
+    background: #ffffff;
+}
+
+.pet-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-bottom: 60px;
+    background: #f7f4ef;
+    padding: 48px;
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+}
+
+.pet-imagem {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--sombra);
+}
+
+.pet-imagem img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.pet-info h1 {
+    font-size: 2.2rem;
+    color: var(--texto-escuro);
+    margin-bottom: 32px;
+}
+
+.info-item {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E0F7FA;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-item strong {
+    display: block;
+    color: var(--botao);
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+}
+
+.info-item p {
+    color: var(--cinza-suave);
+    margin: 0;
+    font-size: 1rem;
+}
+
+.agendamentos-container {
+    background: var(--branco);
+    padding: 48px;
+    border-radius: 24px;
+    box-shadow: var(--sombra);
+}
+
+.agendamentos-container h2 {
+    font-size: 1.8rem;
+    color: var(--texto-escuro);
+    margin-bottom: 28px;
+}
+
+.agendamentos-list {
+    display: grid;
+    gap: 16px;
+}
+
+.agendamento-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 20px;
+    padding: 20px 24px;
+    background: #E0F7FA;
+    border-radius: 16px;
+    border-left: 4px solid var(--botao);
+    align-items: center;
+}
+
+.agendamento-item .data {
+    font-weight: 700;
+    color: var(--botao);
+    font-size: 1rem;
+}
+
+.agendamento-item .descricao {
+    color: var(--texto-escuro);
+    font-size: 1rem;
+}
+
+/* Responsividade - Página de Acesso */
+@media (max-width: 1024px) {
+    .pet-container {
+        grid-template-columns: 1fr;
+    }
+
+    .pet-perfil {
+        padding: 60px 28px;
+    }
+
+    .pet-container {
+        padding: 32px;
+    }
+
+    .agendamentos-container {
+        padding: 32px;
+    }
+}
+
+@media (max-width: 700px) {
+    .pet-perfil {
+        padding: 40px 20px;
+    }
+
+    .pet-container {
+        padding: 24px;
+        margin-bottom: 40px;
+    }
+
+    .pet-info h1 {
+        font-size: 1.8rem;
+        margin-bottom: 24px;
+    }
+
+    .info-item {
+        margin-bottom: 18px;
+        padding-bottom: 12px;
+    }
+
+    .agendamentos-container {
+        padding: 24px;
+    }
+
+    .agendamento-item {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+}
+
 /* Login */
 .login-container {
     text-align: center;
@@ -811,4 +889,14 @@ nav a {
 .links-login a {
     color: black;
     text-decoration: none;
+}
+
+/* Garante que o botão posicionado abaixo do card não corte o layout */
+#agendamento {
+    margin-bottom: 70px;
+}
+
+/* Deixa os inputs com a borda cinza */
+#agendamento .form-control, #agendamento .form-select {
+    border-color: #e0e0e0;
 }
